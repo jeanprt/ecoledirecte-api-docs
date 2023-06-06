@@ -37,6 +37,7 @@ Juste un rapide sommaire pour naviguer plus facilement dans la documentation
 * [Timeline](#timeline)
 * [Emploi du temps](#emploi-du-temps)
 * [Vie scolaire](#vie-scolaire)
+* [Notes](#notes)
 
 ----
 ## Reference
@@ -760,3 +761,80 @@ Succès
    }
 }
 ```
+### Notes
+
+Request
+```
+    Endpoint: https://api.ecoledirecte.com/v3/eleves/{id}/notes.awp?verbe=get&v=4.32.2
+    Type of request : POST
+    Body :
+        data={
+            "anneeScolaire": ""
+        }
+    Headers :
+    X-Token: <token>
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36
+```
+
+Responses :
+
+Succès
+```js
+{
+    "code": 200,
+    "token": "super secret token here",
+    "host": "HTTP186",
+    "data": {
+        "foStat": "22121810019",
+        "periodes": [
+            {
+                "idPeriode": "A001",
+                "codePeriode": "A001",
+                "periode": "1er Trimestre",
+                "annuel": false,
+                "dateDebut": "2022-09-03",
+                "dateFin": "2022-11-29",
+                "examenBlanc": false,
+                "cloture": true,
+                "dateConseil": "2023-03-09",
+                "heureConseil": "16:30",
+                "moyNbreJoursApresConseil": -1,
+                "ensembleMatieres": {
+                    "dateCalcul": "2022-12-15 07:51",
+                    "moyenneGenerale": "note",
+                    "moyenneClasse": "note",
+                    "moyenneMin": "note",
+                    "moyenneMax": "note",
+                    "nomPP": "Mr Git HUB",
+                    "nomCE": "",
+                    "decisionDuConseil": "",
+                    "disciplines": [
+                        {
+                            "id": 5225,
+                            "codeMatiere": "MATHS",
+                            "codeSousMatiere": "",
+                            "discipline": "Spé MATHÉMATIQUES",
+                            "moyenne": "note",
+                            "moyenneClasse": "note",
+                            "moyenneMin": "note",
+                            "moyenneMax": "note",
+                            "coef": coef,
+                            "effectif": int,
+                            "rang": int,
+                            "groupeMatiere": false,
+                            "idGroupeMatiere": 0,
+                            "option": 0,
+                            "sousMatiere": false,
+                            "saisieAppreciationSSMat": false,
+                            "professeurs": [
+                                {
+                                    "id": <id prof donné par ed>,
+                                    "nom": "M. Git Hub"
+                                },
+                                {                                   #donné, si prof remplacent ou 2 profs par matière
+                                    "id": <id prof donné par ed>,
+                                    "nom": "M. BERNERS-LEE T."
+                                }
+                            ]
+                        },
+                        
